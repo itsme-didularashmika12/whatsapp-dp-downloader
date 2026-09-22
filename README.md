@@ -86,6 +86,10 @@ Set `enabled: false` in the config to turn all of it off instantly.
 - `tools/seo_health_check.py` — periodic SEO/health audit (status codes,
   canonicals, meta uniqueness, H1s, JSON-LD validity, internal links, security
   headers, API health) for monitoring after each deploy.
+- `tools/security_checks.py` — live privacy/hardening probes (401 cleanliness,
+  CORS, rate-limit/recovery, input rejection, header integrity).
+- `tools/runtime_checks.py` — browser-driven behavior checks (ad-system safety,
+  live UI lookup/download/lightbox, 6-width viewport sweep).
 
 ## Search consoles
 
