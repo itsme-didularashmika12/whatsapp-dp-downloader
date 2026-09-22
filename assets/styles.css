@@ -363,3 +363,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visib
   .brand .logo { width: 34px; height: 34px; }
   .nav-links .btn { padding: 0.5rem 0.9rem; font-size: 0.85rem; }
 }
+
+/* ---------- phase-3 content additions ---------- */
+.prose figure { margin: 1.4rem 0; }
+.prose figure img { border-radius: 16px; border: 1px solid var(--line); width: 100%; height: auto; }
+.prose figcaption { font-size: 0.82rem; color: var(--ink-3); margin-top: 0.55rem; text-align: center; }
+.updated { font-size: 0.8rem; font-weight: 600; color: #bfe8d5; display: inline-block; margin-top: 0.35rem; }
+.prose code { background: #eef2f7; padding: 0.1rem 0.35rem; border-radius: 6px; font-size: 0.88em; }
+.faq-more { text-align: center; margin-top: 1.6rem; font-weight: 600; }

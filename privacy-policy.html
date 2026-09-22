@@ -60,6 +60,15 @@
     <div class="wrap prose">
       <p>WhatsApp DP Downloader ("we", "the service") is built to be private by default. This policy explains, in plain language, what happens when you use it.</p>
 
+      <h2>How a lookup works (plain English)</h2>
+      <ol>
+        <li>You type a phone number. Your browser sends only that number to our serverless lookup proxy (hosted on Vercel). We validate it and apply a short per-user rate limit.</li>
+        <li>The proxy forwards the number to our lookup engine over an encrypted connection, using a secret key that never reaches your browser or any client-side code.</li>
+        <li>The engine asks WhatsApp for the public profile picture linked to the number and downloads the image if one is available. Phone numbers are masked in our own logs (we keep an operational form like <code>947•••62</code>, never the full number in log files).</li>
+        <li>The image is delivered straight to your browser. Successful lookups may briefly stay in memory (a few hours) as an anti-lag cache, then are automatically discarded; negative results ("no photo") are cached for about 30 minutes.</li>
+      </ol>
+      <p>We are intentionally conservative about over-promising: we do not claim total anonymity (that would be dishonest), we claim <em>minimal retention</em> — and the design above is exactly what that means.</p>
+
       <h2>1. What we collect</h2>
       <ul>
         <li><strong>Lookup requests.</strong> When you search a number, that number is sent to our lookup backend, processed in real time, and discarded. We do not log searched numbers into any permanent database.</li>
@@ -122,6 +131,8 @@
           <ul>
             <li><a href="/how-to-download-whatsapp-dp">How to download a WhatsApp DP</a></li>
             <li><a href="/whatsapp-dp-size">WhatsApp DP size &amp; dimensions</a></li>
+            <li><a href="/whatsapp-profile-picture-guide">Profile picture guide</a></li>
+            <li><a href="/whatsapp-dp-faq">WhatsApp DP FAQ</a></li>
             <li><a href="/about">About us</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>

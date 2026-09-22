@@ -81,7 +81,7 @@
     <div class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &nbsp;›&nbsp; About</nav>
       <h1>About WhatsApp DP Downloader</h1>
-      <p>A small, fast tool with one job: getting a WhatsApp profile picture in its original quality — free for everyone.</p>
+      <p>A small, fast tool with one job: getting a WhatsApp profile picture in its original quality — free for everyone. <span class="updated">Updated 22 September 2026.</span></p>
     </div>
   </section>
   <section>
@@ -90,16 +90,24 @@
       <p>WhatsApp DP Downloader is a free web tool that lets you view and download the public profile picture ("DP" — display picture) linked to any WhatsApp number. Enter the number with its country code and we fetch the highest-resolution photo WhatsApp serves, ready to save on any device.</p>
       <h2>Why we built it</h2>
       <p>WhatsApp compresses and hides profile photos inside the app — there's no official way to save one. Screenshots are cropped, blurry, and low resolution. We wanted a one-click, no-install way to get the real file, so we built it and made it free for everyone.</p>
+      <h2>How it actually works</h2>
+      <p>The tool operates a small lookup engine connected to WhatsApp. When you enter a number, the engine asks WhatsApp for the public profile picture attached to that number and streams the original file back to your browser. There is no screen-scraping, no logging into your account, and nothing installed on your device.</p>
       <h2>Our privacy promise</h2>
       <ul>
         <li>No accounts, no tracking pixels, no analytics on what you look up.</li>
         <li>Numbers you search are processed in real time and are <strong>never stored</strong>.</li>
         <li>Photos pass through to your browser — we don't keep a photo database.</li>
-        <li>Lookups are anonymous: the profile owner is never notified.</li>
+        <li>The profile owner is never notified about a lookup.</li>
       </ul>
-      <p>Read the details in our <a href="/privacy-policy">Privacy Policy</a>.</p>
+      <p>Read the details — including the exact data flow and caching windows — in our <a href="/privacy-policy">Privacy Policy</a>.</p>
       <h2>Honest limits</h2>
-      <p>We can only show what WhatsApp makes publicly visible. If a user's privacy settings hide their photo, no tool — ours included — can or will fetch it. We don't bypass privacy settings, and we never will.</p>
+      <ul>
+        <li><strong>We cannot show private photos.</strong> If a user's privacy settings hide their DP, WhatsApp doesn't share it — with us or anyone. We don't bypass privacy settings, and we never will.</li>
+        <li><strong>Group profile photos aren't supported</strong> — they don't map to a phone number.</li>
+        <li><strong>Occasionally a lookup fails or is slow</strong> — WhatsApp's servers control response times; retrying usually helps.</li>
+        <li><strong>Results can change</strong> — people update their photos, and brief caching may return a recent rather than current image.</li>
+        <li><strong>Rate limits exist on purpose</strong> — they keep the service healthy and free for everyone.</li>
+      </ul>
       <h2>Independent &amp; unaffiliated</h2>
       <p>This is an independent project. We are not affiliated with, endorsed by, or connected to WhatsApp LLC or Meta Platforms, Inc. "WhatsApp" is a trademark of its owner and is used here only to describe what the tool does (nominative fair use).</p>
       <h2>Contact</h2>
@@ -131,6 +139,8 @@
           <ul>
             <li><a href="/how-to-download-whatsapp-dp">How to download a WhatsApp DP</a></li>
             <li><a href="/whatsapp-dp-size">WhatsApp DP size &amp; dimensions</a></li>
+            <li><a href="/whatsapp-profile-picture-guide">Profile picture guide</a></li>
+            <li><a href="/whatsapp-dp-faq">WhatsApp DP FAQ</a></li>
             <li><a href="/about">About us</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>

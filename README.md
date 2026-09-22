@@ -54,8 +54,10 @@ vercel dev
 ## Pages
 
 - `/` — tool + full SEO landing
-- `/how-to-download-whatsapp-dp` — step-by-step guide (Article schema)
-- `/whatsapp-dp-size` — DP dimensions & quality guide
+- `/how-to-download-whatsapp-dp` — step-by-step guide (Article + HowTo schema)
+- `/whatsapp-dp-size` — DP dimensions & quality guide (Article schema)
+- `/whatsapp-profile-picture-guide` — the complete profile-picture guide: crop, format, display, quality (Article schema)
+- `/whatsapp-dp-faq` — consolidated question hub: errors, privacy, blocked accounts, group photos (FAQPage schema)
 - `/about`, `/contact`, `/privacy-policy`, `/terms-of-service`, `/dmca`
 
 ## Legal
