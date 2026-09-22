@@ -371,3 +371,24 @@ a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visib
 .updated { font-size: 0.8rem; font-weight: 600; color: #bfe8d5; display: inline-block; margin-top: 0.35rem; }
 .prose code { background: #eef2f7; padding: 0.1rem 0.35rem; border-radius: 6px; font-size: 0.88em; }
 .faq-more { text-align: center; margin-top: 1.6rem; font-weight: 600; }
+
+/* ---------- sponsored links (isolated, clearly labeled) ---------- */
+.sponsored { padding: 0 0 1rem; }
+.sponsored-inner {
+  border: 1px dashed var(--line); border-radius: 14px; background: #fdfefe;
+  padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 0.55rem;
+}
+.sponsored-tag {
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-3); background: #f1f5f9; border: 1px solid var(--line);
+  padding: 0.15rem 0.5rem; border-radius: 999px; align-self: flex-start;
+}
+.sponsored-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.sponsored-link {
+  display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.88rem; font-weight: 700;
+  color: var(--ink-2); background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.5rem 0.95rem; transition: border-color 0.15s ease, color 0.15s ease; min-height: 44px;
+}
+.sponsored-link:hover { border-color: var(--wa-teal); color: var(--wa-teal); text-decoration: none; }
+.sponsored-link svg { width: 14px; height: 14px; flex: none; }
+.sponsored-note { font-size: 0.75rem; color: var(--ink-3); margin: 0; }

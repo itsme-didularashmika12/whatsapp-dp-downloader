@@ -63,3 +63,38 @@ vercel dev
 ## Legal
 
 Independent project — not affiliated with WhatsApp LLC or Meta Platforms, Inc. Photos belong to their owners; personal use only. See [DMCA](https://whatsapp-dp-downloader.vercel.app/dmca).
+
+## Runtime architecture
+
+- **Frontend**: static site on Vercel (`index.html` + guides + `assets/`) — vanilla HTML/CSS/JS, no framework.
+- **API**: `api/` serverless functions proxying to the self-hosted DP API (`/api/health`, `/api/dp?number=…`).
+- **Engine**: private WhatsApp-session API (see backend repo notes).
+
+## Monetization (configurable, isolated, easily disabled)
+
+`assets/ads-config.js` holds the master switch + rotation/cooldown settings + the
+sponsored link list; `assets/ads.js` renders clearly labeled "Advertisement"
+cards into the single `[data-ads-mount]` slot per page. Tracking is local-only
+(browser localStorage): the searched phone number or any user data is never
+transmitted to advertisers, and there are no third-party ad scripts/iframes.
+Set `enabled: false` in the config to turn all of it off instantly.
+
+## SEO tooling
+
+- `tools/submit_indexnow.py` — pushes the XML sitemap URL set to the IndexNow
+  endpoint (official protocol, key file at the site root).
+- `tools/seo_health_check.py` — periodic SEO/health audit (status codes,
+  canonicals, meta uniqueness, H1s, JSON-LD validity, internal links, security
+  headers, API health) for monitoring after each deploy.
+
+## Search consoles
+
+Manual one-time step (owner account required): verify the site in Google
+Search Console + Bing Webmaster Tools using the HTML-tag method, then submit
+`/sitemap.xml`.
+
+## Deploy
+
+    vercel build --prod && vercel deploy --prebuilt --prod
+
+`sitemap.xml`, `robots.txt`, favicons and the OpenGraph image are at the site root.
