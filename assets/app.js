@@ -59,6 +59,26 @@
 
   var $ = function (s, el) { return (el || document).querySelector(s); };
 
+  /* ============================================================
+     COMMON — runs on every page (footer year + status pill)
+     ============================================================ */
+  function initCommon() {
+    var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+    var pill = $('#status-pill');
+    if (pill) {
+      fetch('/api/health').then(function (r) { return r.json(); }).then(function (d) {
+        if (d && d.ok && d.sessions_open > 0) {
+          $('#status-text').textContent = 'Engine online · ' + d.sessions_open + ' nodes ready';
+        } else { pill.classList.add('off'); $('#status-text').textContent = 'Engine warming up'; }
+      }).catch(function () { pill.classList.add('off'); $('#status-text').textContent = 'Status unknown'; });
+    }
+  }
+
+  /* ============================================================
+     TOOL — only on pages containing the lookup form
+     ============================================================ */
+  function initTool() {
+
   /* ---------- build country dropdown ---------- */
   var sel = $('#country');
   if (sel) {
@@ -73,7 +93,6 @@
 
   /* ---------- elements ---------- */
   var form = $('#dp-form');
-  if (!form) return; // page without the tool
   var phone = $('#phone');
   var btn = $('#dp-btn');
   var formError = $('#form-error');
@@ -200,10 +219,22 @@
     showToast('Download started — check your Downloads folder');
   });
 
-  /* full-size lightbox */
+  /* full-size lightbox (with focus hand-off for keyboard users) */
   var lb = $('#lightbox');
-  function openLb() { if (lb) { $('#lightbox-img').src = $('#dp-img').src; lb.classList.add('show'); } }
-  function closeLb() { lb && lb.classList.remove('show'); }
+  var lastFocus = null;
+  function openLb() {
+    if (!lb) return;
+    $('#lightbox-img').src = $('#dp-img').src;
+    lastFocus = document.activeElement;
+    lb.classList.add('show');
+    var close = $('.lb-close', lb);
+    if (close) close.focus();
+  }
+  function closeLb() {
+    if (!lb) return;
+    lb.classList.remove('show');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
   var viewBtn = $('#btn-view');
   viewBtn && viewBtn.addEventListener('click', openLb);
   var dpImg = $('#dp-img');
@@ -223,16 +254,8 @@
   /* live tidy of input */
   phone.addEventListener('input', function () { formError.classList.remove('show'); });
 
-  /* ---------- service status badge (footer) ---------- */
-  var pill = $('#status-pill');
-  if (pill) {
-    fetch('/api/health').then(function (r) { return r.json(); }).then(function (d) {
-      if (d && d.ok && d.sessions_open > 0) {
-        $('#status-text').textContent = 'Engine online · ' + d.sessions_open + ' nodes ready';
-      } else { pill.classList.add('off'); $('#status-text').textContent = 'Engine warming up'; }
-    }).catch(function () { pill.classList.add('off'); $('#status-text').textContent = 'Status unknown'; });
-  }
+  } /* end initTool */
 
-  /* year */
-  var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+  initCommon();
+  if ($('#dp-form')) initTool();
 })();

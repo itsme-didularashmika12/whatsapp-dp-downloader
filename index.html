@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhatsApp DP Downloader — Download WhatsApp Profile Pictures in Full HD (Free)</title>
+  <title>WhatsApp DP Downloader — Download Profile Pictures Free in HD</title>
   <meta name="description" content="Free WhatsApp DP Downloader: view & download any WhatsApp profile picture in full HD by phone number. 100% free, no login, no app install — works on Android, iPhone & PC.">
   <meta name="keywords" content="whatsapp dp download, whatsapp dp downloader, download whatsapp profile picture, whatsapp profile picture downloader, save whatsapp dp, whatsapp dp viewer, whatsapp dp full size, profile pic download whatsapp">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -14,12 +14,13 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="WhatsApp DP Downloader">
-  <meta property="og:title" content="WhatsApp DP Downloader — Download WhatsApp Profile Pictures in Full HD (Free)">
+  <meta property="og:title" content="WhatsApp DP Downloader — Download Profile Pictures Free in HD">
   <meta property="og:description" content="View & download any WhatsApp profile picture in full HD by phone number. Free forever, no login, works on every device.">
   <meta property="og:url" content="https://whatsapp-dp-downloader.vercel.app/">
   <meta property="og:image" content="https://whatsapp-dp-downloader.vercel.app/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="WhatsApp DP Downloader — download profile pictures in full HD, free">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
@@ -27,9 +28,10 @@
   <meta name="twitter:title" content="WhatsApp DP Downloader — Full HD Profile Pictures, Free">
   <meta name="twitter:description" content="View & download any WhatsApp profile picture in full HD by phone number. Free, no login, instant.">
   <meta name="twitter:image" content="https://whatsapp-dp-downloader.vercel.app/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="WhatsApp DP Downloader — download profile pictures in full HD, free">
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/logo.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/assets/styles.css">
 
@@ -64,6 +66,8 @@
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Any (Web)",
         "browserRequirements": "Requires JavaScript",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "featureList": [
           "Download WhatsApp profile pictures in full HD",
@@ -129,12 +133,6 @@
             "acceptedAnswer": { "@type": "Answer", "text": "Downloading publicly visible profile pictures for personal use is generally tolerated, but photos belong to their owners. Do not re-publish, harass, impersonate, or use images commercially without permission. See our Terms of Service and DMCA page." }
           }
         ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://whatsapp-dp-downloader.vercel.app/" }
-        ]
       }
     ]
   }
@@ -147,7 +145,7 @@
     <div class="wrap nav">
       <a class="brand" href="/" aria-label="WhatsApp DP Downloader — home">
         <img class="logo" src="/assets/logo.svg" alt="WhatsApp DP Downloader logo" width="38" height="38">
-        <span>WhatsApp&nbsp;<b>DP</b>&nbsp;Downloader</span>
+        <span>WhatsApp&nbsp;<b>DP</b>&nbsp;<span class="b2">Downloader</span></span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#how-it-works">How it works</a>
@@ -182,16 +180,16 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="#128c7e" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
           Download a WhatsApp DP
         </h2>
-        <p class="hint">Full international number required — e.g. <strong>77 123 4567</strong> for Sri Lanka (+94).</p>
+        <p class="hint" id="tool-hint">Full international number required — e.g. <strong>77 123 4567</strong> for Sri Lanka (+94).</p>
         <form id="dp-form" novalidate>
           <div class="field-row">
             <div class="country-wrap">
-              <label class="sr-only" for="country" style="position:absolute;left:-9999px">Country code</label>
-              <select id="country" aria-label="Country"></select>
+              <label class="sr-only" for="country">Country (sets dialing code)</label>
+              <select id="country"></select>
             </div>
             <div class="phone-wrap">
-              <label for="phone" style="position:absolute;left:-9999px">WhatsApp phone number</label>
-              <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp number" maxlength="18" required>
+              <label class="sr-only" for="phone">WhatsApp phone number</label>
+              <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp number" maxlength="18" aria-describedby="tool-hint" required>
             </div>
           </div>
           <button type="submit" class="btn btn-primary" id="dp-btn">
@@ -214,9 +212,9 @@
       <div class="row">
         <div class="skel-circle shimmer"></div>
         <div class="skel-lines">
-          <div class="skel-line shimmer" style="width:60%"></div>
-          <div class="skel-line shimmer" style="width:40%"></div>
-          <div class="skel-line shimmer" style="width:75%"></div>
+          <div class="skel-line shimmer w60"></div>
+          <div class="skel-line shimmer w40"></div>
+          <div class="skel-line shimmer w75"></div>
         </div>
       </div>
     </div>
@@ -229,7 +227,7 @@
     <div class="result-card" id="result">
       <div class="result-grid">
         <div class="dp-frame">
-          <img id="dp-img" src="" alt="WhatsApp profile picture" width="240" height="240">
+          <img id="dp-img" src="" alt="WhatsApp profile picture" width="240" height="240" decoding="async">
         </div>
         <div class="result-meta">
           <h3>Profile picture found 🎉</h3>
@@ -278,11 +276,11 @@
   </section>
 
   <!-- ======================= FEATURES ======================= -->
-  <section id="features" style="background:#eef7f2">
+  <section id="features" class="alt-bg">
     <div class="wrap">
       <div class="sec-head">
         <span class="kicker">Why this tool</span>
-        <h2>The fastest WhatsApp profile picture downloader</h2>
+        <h2>A fast, free WhatsApp profile picture downloader</h2>
         <p>Built for quality and privacy — everything a great DP downloader should be.</p>
       </div>
       <div class="features">
@@ -324,7 +322,7 @@
   <section>
     <div class="wrap split">
       <div>
-        <span class="kicker" style="color:var(--wa-teal);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.8rem">Handy every day</span>
+        <span class="kicker-ink">Handy every day</span>
         <h2>Why download a WhatsApp profile picture?</h2>
         <p>A WhatsApp DP is tiny inside the app and impossible to save directly. This tool unlocks the original file so you can keep it, view it properly, or use it where you need it.</p>
         <ul class="checklist">
@@ -335,7 +333,7 @@
         </ul>
       </div>
       <div class="panel">
-        <h3 style="font-size:1.15rem;margin-bottom:.9rem">What you get</h3>
+        <h3 class="panel-h">What you get</h3>
         <table class="format-table">
           <thead><tr><th>Item</th><th>Detail</th></tr></thead>
           <tbody>
@@ -350,14 +348,39 @@
         <div class="stat-row">
           <div class="stat"><b>190+</b><span>country codes</span></div>
           <div class="stat"><b>&lt;10s</b><span>avg. lookup</span></div>
-          <div class="stat"><b>0</b><span>data stored</span></div>
+          <div class="stat"><b>0</b><span>searched numbers stored</span></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ======================= GUIDES (internal linking) ======================= -->
+  <section id="guides">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Learn more</span>
+        <h2>WhatsApp DP guides</h2>
+        <p>Practical, no-fluff guides about WhatsApp profile photos — written for real users.</p>
+      </div>
+      <div class="guides">
+        <a class="guide-card" href="/how-to-download-whatsapp-dp">
+          <span class="tag">Step-by-step guide</span>
+          <h3>How to download a WhatsApp DP on Android, iPhone &amp; PC</h3>
+          <p>Every method that works in 2026 — with the privacy-setting reality check most sites skip.</p>
+          <span class="go">Read the how-to guide →</span>
+        </a>
+        <a class="guide-card" href="/whatsapp-dp-size">
+          <span class="tag">Reference</span>
+          <h3>WhatsApp DP size &amp; dimensions: what resolution is a profile photo?</h3>
+          <p>Why WhatsApp compresses DPs, the 640-pixel rule, and how to keep the best possible quality.</p>
+          <span class="go">See the size guide →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================= FAQ ======================= -->
-  <section id="faq" style="background:#eef7f2">
+  <section id="faq" class="alt-bg">
     <div class="wrap">
       <div class="sec-head">
         <span class="kicker">Good to know</span>
@@ -406,8 +429,8 @@
     <div class="wrap">
       <div class="cta-band">
         <h2>Grab that WhatsApp profile picture — in its real quality</h2>
-        <p>Free, instant and anonymous. No screenshots, no watermarks, no sign-up.</p>
-        <a class="btn btn-primary" href="#tool-anchor" style="position:relative;z-index:1">Download a DP now — free</a>
+        <p>Free, instant, no sign-up. No screenshots, no watermarks — and the owner is never notified.</p>
+        <a class="btn btn-primary rel-z1" href="#tool-anchor">Download a DP now — free</a>
       </div>
     </div>
   </section>
@@ -448,6 +471,7 @@
             <li><a href="/privacy-policy">Privacy Policy</a></li>
             <li><a href="/terms-of-service">Terms of Service</a></li>
             <li><a href="/dmca">DMCA</a></li>
+            <li><a href="https://github.com/itsme-didularashmika12/whatsapp-dp-downloader/issues" rel="noopener">Report abuse</a></li>
           </ul>
         </div>
       </div>

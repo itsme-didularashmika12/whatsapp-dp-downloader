@@ -42,7 +42,12 @@ export default async function handler(req, res) {
   const timer = setTimeout(() => ctl.abort(), 40_000);
   try {
     const upstream = await fetch(`${base}/api/dp?number=${number}`, {
-      headers: { 'x-api-key': key, 'Accept': 'application/json' },
+      headers: {
+        'x-api-key': key,
+        'Accept': 'application/json',
+        // let the VPS apply its OWN per-user rate limit (nginx appends our egress IP)
+        'X-Forwarded-For': ip,
+      },
       signal: ctl.signal,
     });
     const data = await upstream.json().catch(() => null);
