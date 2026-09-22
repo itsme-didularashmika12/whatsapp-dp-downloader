@@ -1,0 +1,12 @@
+{
+  "name": "WhatsApp DP Downloader",
+  "short_name": "WA DP Downloader",
+  "description": "View & download WhatsApp profile pictures in full HD — free, no login.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#075e54",
+  "theme_color": "#075e54",
+  "icons": [
+    { "src": "/assets/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

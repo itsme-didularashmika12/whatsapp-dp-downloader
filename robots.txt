@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://whatsapp-dp-downloader.vercel.app/sitemap.xml
