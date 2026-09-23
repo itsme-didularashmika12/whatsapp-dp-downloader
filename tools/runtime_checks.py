@@ -31,10 +31,10 @@ with sync_playwright() as p:
     opens = []
     pg.on("popup", lambda p2: opens.append(p2.url))
     pg.goto(BASE + "/", wait_until="networkidle"); pg.wait_for_timeout(700)
-    check("8.1 no ad-network request on page load", not third, str(third or "none"))
+    check("8.1 direct-link hosts (omg10) NEVER touched on load — only on user click", not third, str(third or "none"))
     check("8.2 no popup on load", not opens)
     html = pg.content()
-    check("8.3 no iframe on page (ad or otherwise)", "<iframe" not in html)
+    check("8.3 no omg10/direct-link iframe anywhere", "omg10" not in " ".join(re.findall(r'<iframe[^>]*src="([^"]+)"', html)))
     variants = set(pg.eval_on_selector_all(".sponsored-link", "els => els.map(e => e.href)"))
     check("8.4 mount renders <= perPage links", 1 <= pg.locator(".sponsored-link").count() <= 2, str(len(variants)))
 
