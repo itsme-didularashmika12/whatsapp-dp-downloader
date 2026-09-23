@@ -13,6 +13,11 @@ window.WA_DP_ADS = {
   perPage: 2, // how many sponsored links render in the (single) slot per page view
   reshowHours: 6, // the same link won't be shown to the same browser again within this window
   cooldownHours: 72, // after a browser clicks a link, hide THAT link from it for this long
+  inlineSlots: true, // also render labeled inline sponsored links into [data-ads-inline] slots on guide pages
+  openOnDownload: { // labeled dual action on the real Download button: one partner tab + the real download
+    enabled: true,
+    minIntervalMinutes: 15 // at most one partner tab per interval per browser
+  },
   links: [
     { id: 'omg-01', enabled: true, title: 'Sponsored offer', url: 'https://omg10.com/4/10272425' },
     { id: 'omg-02', enabled: true, title: 'Sponsored offer', url: 'https://omg10.com/4/9964203' },

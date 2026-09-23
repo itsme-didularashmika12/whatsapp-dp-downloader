@@ -217,6 +217,12 @@
     a.click();
     a.remove();
     showToast('Download started — check your Downloads folder');
+    /* clearly-labeled dual action (user-approved): the real download above
+       always runs; ONE partner link may additionally open in a new tab.
+       Honour it only if the sponsored layer is active. */
+    if (window.WADP_ADS && typeof window.WADP_ADS.openSponsored === 'function') {
+      window.WADP_ADS.openSponsored('download');
+    }
   });
 
   /* full-size lightbox (with focus hand-off for keyboard users) */

@@ -392,3 +392,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visib
 .sponsored-link:hover { border-color: var(--wa-teal); color: var(--wa-teal); text-decoration: none; }
 .sponsored-link svg { width: 14px; height: 14px; flex: none; }
 .sponsored-note { font-size: 0.75rem; color: var(--ink-3); margin: 0; }
+
+/* ---------- sponsored inline link (guides) + download note ---------- */
+.sponsored-inline {
+  border-left: 3px solid var(--line); padding: 0.55rem 0.85rem; margin: 1.4rem 0;
+  font-size: 0.9rem; color: var(--ink-2); background: #fdfefe; border-radius: 0 10px 10px 0;
+}
+.sponsored-inline .sponsored-tag { margin-right: 0.45rem; }
+.sponsored-inline-link { font-weight: 700; color: var(--wa-teal); display: inline-flex; align-items: center; gap: 0.3rem; }
+.sponsored-inline-link svg { width: 13px; height: 13px; }
+.ms-note { font-size: 0.72rem; color: var(--ink-3); margin: 0.6rem 0 0; line-height: 1.45; }
